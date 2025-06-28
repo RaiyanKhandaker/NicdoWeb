@@ -1,0 +1,47 @@
+import HomeObejcts from "../objects/HomeObjects.cy";
+
+
+describe('Checking functionality of Header button of Nicdo Web', () => {
+  it('should check all header button functionality correctly', () => {
+     const home=new HomeObejcts()
+
+    {//visit website
+     cy.visit('https://nicdoweb.com/')
+     cy.wait(2000)
+    }
+
+    home.scrollWebDevelopmentServices()
+    home.clickUiUx()
+    home.clickFrontend()
+    home.clickBackend()
+    home.clickFullstack()
+    home.clickCMS()
+    home.clickSEO()
+    home.clickUiUx()
+    home.clickReadMore()
+    home.clickHome()
+    home.scrollWebDevelopmentServices()
+    home.clickFrontend()
+    home.clickReadMore()
+    home.clickHome()
+    home.scrollWebDevelopmentServices()
+    home.clickBackend()
+    home.clickReadMore()
+    home.clickHome()
+    home.scrollWebDevelopmentServices()
+    home.clickFullstack()
+    home.clickReadMore()
+    home.clickHome()
+    home.scrollWebDevelopmentServices()
+    home.clickCMS()
+    home.clickReadMore()
+    home.clickHome()
+    home.scrollWebDevelopmentServices()
+    home.clickSEO()
+    home.clickReadMore()
+    home.clickHome()
+    home.scrollWebDevelopmentServices()
+    home.scrollContactUs()
+    home.clickContactUs()
+  })
+})

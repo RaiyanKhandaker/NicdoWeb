@@ -68,7 +68,8 @@ class allOtherPageObjects{
 
     scrollContact(){
     {
-     cy.contains("Get in Touch with NicdoWeb")
+     cy.contains("Get in Touch with NicdoWeb\
+      ")
        .scrollIntoView({ block: 'center' })
        .should('be.visible');
      }

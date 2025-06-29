@@ -101,6 +101,16 @@ class HeaderObjects{
 
 
 
+    clickOurServices(){
+     cy.xpath(this.Services).click({ force: true })
+     cy.wait(2000)
+     cy.contains("Check Our Services").click({ force: true })
+     cy.wait(2000)
+     cy.url({ decode: true }).should('contain', 'our-services')
+     cy.wait(2000)
+    }
+
+
     clickEcommerce(){//click E-Commerce button from header Industries button
      cy.xpath(this.Industries).click({force: true})
      cy.wait(2000)

@@ -20,6 +20,7 @@ describe('Checking functionality of Header button of Nicdo Web', () => {
      header.clickFullStack();
      header.clickCMS();
      header.clickSEO(); 
+     header.clickOurServices();
      header.clickEcommerce();
      header.clickHealthcare();
      header.clickEducation();

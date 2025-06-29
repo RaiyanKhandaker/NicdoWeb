@@ -212,6 +212,17 @@ class HeaderObjects{
     }
 
 
+    clickContactUs(){//click contact us button from header Industries button
+     cy.xpath(this.Industries).click({force: true})
+     cy.wait(2000)
+     cy.contains("Contact Us").click({ force: true })
+     cy.wait(2000)
+     cy.url({ decode: true }).should('contain', 'contact')
+     cy.wait(2000)
+    }
+
+
+
 
     //Techonologies - Frontend
     clickJavaScript(){//click JavaScript button from header Technologies button

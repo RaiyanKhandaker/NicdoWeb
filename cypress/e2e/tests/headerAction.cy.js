@@ -31,6 +31,7 @@ describe('Checking functionality of Header button of Nicdo Web', () => {
      header.clickNonprofits()
      header.clickTechnology()
      header.clickManufacturing()
+     header.clickContactUs()
      header.clickJavaScript()
      header.clickReactJS()
      header.clickAngular()

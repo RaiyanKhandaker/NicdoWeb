@@ -27,38 +27,38 @@ class HomeObejcts{
 
 
     clickUiUx(){
-      cy.xpath(this.UiUx).click({force:true})
+      cy.xpath(this.UiUx).click({force:true}).should('be.visible')
       cy.wait(1000)
     }
     
 
 
     clickFrontend(){
-        cy.xpath(this.Frontend).click({force:true})
+        cy.xpath(this.Frontend).click({force:true}).should('be.visible')
         cy.wait(1000)
     }
 
 
     clickBackend(){
-        cy.xpath(this.Backend).click({force:true})
+        cy.xpath(this.Backend).click({force:true}).should('be.visible')
         cy.wait(1000)
     }
 
 
     clickFullstack(){
-        cy.xpath(this.Fullstack).click({force:true})
+        cy.xpath(this.Fullstack).click({force:true}).should('be.visible')
         cy.wait(1000)
     }
 
 
     clickCMS(){
-        cy.xpath(this.CMS).click({force:true})
+        cy.xpath(this.CMS).click({force:true}).should('be.visible')
         cy.wait(1000)
     }
 
 
     clickSEO(){
-        cy.xpath(this.SEO).click({force:true})
+        cy.xpath(this.SEO).click({force:true}).should('be.visible')
         cy.wait(1000)
     }
 
@@ -84,17 +84,17 @@ class HomeObejcts{
     }
 
     clickBronze(){
-        cy.get(this.Bronze).click({force:true})
+        cy.get(this.Bronze).click({force:true}).should('be.visible')
         cy.wait(1000)
     }
 
     clickSilver(){
-        cy.get(this.Silver).click({force:true})
+        cy.get(this.Silver).click({force:true}).should('be.visible')
         cy.wait(1000)
     }
 
     clickGold(){
-        cy.get(this.Gold).click({force:true})
+        cy.get(this.Gold).click({force:true}).should('be.visible')
         cy.wait(1000)
     }
 

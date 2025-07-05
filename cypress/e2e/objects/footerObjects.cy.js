@@ -33,20 +33,28 @@ class FooterObjects{
     clickIndustries(){
         cy.xpath(this.Industries).click()
         cy.wait(1000)
+        cy.url({ decode: true }).should('contain', 'industries')
+        cy.wait(1000)
     }
 
     clickTechnologies(){
         cy.xpath(this.Technologies).click()
+        cy.wait(1000)
+        cy.url({ decode: true }).should('contain', 'technologies')
         cy.wait(1000)
     }
 
     clickPortfolio(){
         cy.xpath(this.Portfolio).click()
         cy.wait(1000)
+        cy.url({ decode: true }).should('contain', 'portfolio')
+        cy.wait(1000)
     }
 
     clickAboutUs(){
         cy.xpath(this.AboutUs).click()
+        cy.wait(1000)
+        cy.url({ decode: true }).should('contain', 'about')
         cy.wait(1000)
     }
 
@@ -54,17 +62,23 @@ class FooterObjects{
     clickUiUx(){
         cy.xpath(this.UiUx).click()
         cy.wait(1000)
+        cy.url({ decode: true }).should('contain', 'ui-ux-design')
+        cy.wait(1000)
     }
 
 
     clickFrontEnd(){
         cy.xpath(this.FrontEnd).click({multiple: true})
         cy.wait(1000)
+        cy.url({ decode: true }).should('contain', 'frontend-development')
+        cy.wait(1000)
         
     }
 
     clickBackEnd(){
         cy.xpath(this.BackEnd).click({multiple: true})
+        cy.wait(1000)
+        cy.url({ decode: true }).should('contain', 'backend-development')
         cy.wait(1000)
         
     }
@@ -73,11 +87,15 @@ class FooterObjects{
     clickFullstack(){
         cy.xpath(this.FullStack).click({multiple: true})
         cy.wait(1000)
+        cy.url({ decode: true }).should('contain', 'fullstack-development')
+        cy.wait(1000)
     }
 
 
     clickCMS(){
         cy.xpath(this.CMS).click({multiple: true})
+        cy.wait(1000)
+        cy.url({ decode: true }).should('contain', 'cms-development')
         cy.wait(1000)
     }
 
@@ -85,16 +103,22 @@ class FooterObjects{
     clickSEO(){
         cy.xpath(this.SEO).click({multiple: true})
         cy.wait(1000)
+        cy.url({ decode: true }).should('contain', 'seo')
+        cy.wait(1000)
     }
 
 
     clickPrivacy(){
         cy.xpath(this.Privacy).click({multiple: true})
         cy.wait(1000)
+        cy.url({ decode: true }).should('contain', 'privacy-policy')
+        cy.wait(1000)
     }
 
     clickTerms(){
         cy.xpath(this.Terms).click({multiple: true})
+        cy.wait(1000)
+        cy.url({ decode: true }).should('contain', 'terms-conditions')
         cy.wait(1000)
     }
 
@@ -102,11 +126,19 @@ class FooterObjects{
     clickCookie(){
         cy.xpath(this.Cookie).click({multiple: true})
         cy.wait(1000)
+        cy.url({ decode: true }).should('contain', 'cookies-policy')
+        cy.wait(1000)
     }
 
 
     clickTellUsForm(){
         cy.xpath(this.TellUsForm).click({multiple: true})
+       
+        {
+        cy.contains("Tell Us About Your Project")
+          .should('be.visible')
+        }
+
         cy.wait(1000)
     }
 

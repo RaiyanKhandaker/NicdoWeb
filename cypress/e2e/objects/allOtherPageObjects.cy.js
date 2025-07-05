@@ -24,6 +24,8 @@ class allOtherPageObjects{
     clickPortfolio(){//click portfolio
      cy.xpath(this.Portfolio).click()
      cy.wait(1000)
+     cy.url({ decode: true }).should('contain', 'portfolio')
+     cy.wait(1000)
     }
     
 
@@ -45,11 +47,12 @@ class allOtherPageObjects{
     clickAbout(){ //click About us
      cy.xpath(this.About).click()
      cy.wait(1000)
+     cy.url({ decode: true }).should('contain', 'about')
+     cy.wait(1000)
     }
 
 
-    ////button[normalize-space()='Get Started']
-    //  font-Poppins  text-4xl font-bold text-purple-700 mb-6 
+    
     scrollAboutUs(){
     {
      cy.contains("Who We Are?")
@@ -65,6 +68,8 @@ class allOtherPageObjects{
     clickGetStartedButton(){
      cy.xpath(this.GetStartedButton).click({ force: true })
      cy.wait(1000)
+     cy.url({ decode: true }).should('contain', 'contact')
+     cy.wait(1000)
     }
 
     
@@ -73,7 +78,7 @@ class allOtherPageObjects{
     {
      cy.contains("Get in Touch with NicdoWeb")
        .scrollIntoView({ block: 'center' })
-       .should('be.visible');
+       .should('be.visible')
      }
 
      cy.wait(1000)

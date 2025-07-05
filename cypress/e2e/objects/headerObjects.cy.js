@@ -14,12 +14,16 @@ class HeaderObjects{
     clickPortfolio(){//click portfolio
      cy.xpath(this.Portfolio).click()
      cy.wait(1000)
+     cy.url({ decode: true }).should('contain', 'portfolio')
+     cy.wait(1000)
     }
     
 
 
     clickAbout(){ //click About us
      cy.xpath(this.About).click()
+     cy.wait(1000)
+     cy.url({ decode: true }).should('contain', 'about')
      cy.wait(1000)
     }
 

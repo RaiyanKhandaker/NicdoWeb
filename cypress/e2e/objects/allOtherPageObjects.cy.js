@@ -10,19 +10,20 @@ class allOtherPageObjects{
 
     clickTechnologies(){
         cy.xpath(this.Technologies).click({force:true})
+        cy.wait(1000)
     }
 
 
     clickOracle(){
      cy.contains("Oracle").click({ force: true })
-     cy.wait(2000)
+     cy.wait(1000)
      cy.url({ decode: true }).should('contain', 'oracle')
-     cy.wait(2000)
+     cy.wait(1000)
     }
 
     clickPortfolio(){//click portfolio
      cy.xpath(this.Portfolio).click()
-     cy.wait(2000)
+     cy.wait(1000)
     }
     
 
@@ -37,12 +38,13 @@ class allOtherPageObjects{
      }
      cy.wait(1000)
      cy.scrollTo('bottom')
+     cy.wait(1000)
     }
 
 
     clickAbout(){ //click About us
      cy.xpath(this.About).click()
-     cy.wait(2000)
+     cy.wait(1000)
     }
 
 
@@ -62,6 +64,7 @@ class allOtherPageObjects{
 
     clickGetStartedButton(){
      cy.xpath(this.GetStartedButton).click({ force: true })
+     cy.wait(1000)
     }
 
     
@@ -74,13 +77,14 @@ class allOtherPageObjects{
        .should('be.visible');
      }
 
-     cy.wait(2000)
+     cy.wait(1000)
     
     }
 
 
     clickSubmit(){
         cy.xpath(this.Submit).click({ force: true })
+        cy.wait(1000)
     }
 
 

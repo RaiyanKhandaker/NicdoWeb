@@ -21,93 +21,93 @@ class FooterObjects{
 
     ScrollToFooter(){
         cy.scrollTo('bottom')
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
 
     clickHome(){
         cy.xpath(this.Home).click()
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
     clickIndustries(){
         cy.xpath(this.Industries).click()
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
     clickTechnologies(){
         cy.xpath(this.Technologies).click()
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
     clickPortfolio(){
         cy.xpath(this.Portfolio).click()
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
     clickAboutUs(){
         cy.xpath(this.AboutUs).click()
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
 
     clickUiUx(){
         cy.xpath(this.UiUx).click()
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
 
     clickFrontEnd(){
         cy.xpath(this.FrontEnd).click({multiple: true})
-        cy.wait(2000)
+        cy.wait(1000)
         
     }
 
     clickBackEnd(){
         cy.xpath(this.BackEnd).click({multiple: true})
-        cy.wait(2000)
+        cy.wait(1000)
         
     }
 
 
     clickFullstack(){
         cy.xpath(this.FullStack).click({multiple: true})
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
 
     clickCMS(){
         cy.xpath(this.CMS).click({multiple: true})
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
 
     clickSEO(){
         cy.xpath(this.SEO).click({multiple: true})
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
 
     clickPrivacy(){
         cy.xpath(this.Privacy).click({multiple: true})
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
     clickTerms(){
         cy.xpath(this.Terms).click({multiple: true})
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
 
     clickCookie(){
         cy.xpath(this.Cookie).click({multiple: true})
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
 
     clickTellUsForm(){
         cy.xpath(this.TellUsForm).click({multiple: true})
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
 

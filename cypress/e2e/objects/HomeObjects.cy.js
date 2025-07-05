@@ -10,25 +10,17 @@ class HomeObejcts{
     submit = "//button[normalize-space()='Submit']"
     
 
+    
+
     scrollWebDevelopmentServices(){
         
      {
-      cy.get('[class=" font-Poppins home-services-content"]')
+      cy.contains('h1', 'Web Development Services for Optimised Web Solutions')
         .scrollIntoView({ block: 'center' })
         .should('be.visible');
      }
      cy.wait(1000)
     }
-
-    // scrollWebDevelopmentServices(){
-        
-    //  {
-    //   cy.contains('h1', 'Web Development Services for Optimised Web Solutions')
-    //     .scrollIntoView({ block: 'center' })
-    //     .should('be.visible');
-    //  }
-    //  cy.wait(1000)
-    // }
 
 
     clickUiUx(){
@@ -92,7 +84,7 @@ class HomeObejcts{
 
     clickContactUs(){
         cy.xpath(this.submit).click({force:true})
-        cy.wait(2000)
+        cy.wait(1000)
     }
 
 }

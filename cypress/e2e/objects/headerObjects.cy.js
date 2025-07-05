@@ -27,6 +27,8 @@ class HeaderObjects{
     clickContact(){//click Contact us
      cy.xpath(this.Contact).click()
      cy.wait(1000)
+     cy.url({ decode: true }).should('contain', 'contact')
+     cy.wait(1000)
     }
 
 

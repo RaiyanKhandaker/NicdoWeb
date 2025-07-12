@@ -12,19 +12,19 @@ describe('Checking functionality of Header button of Nicdo Web', () => {
     
     
      {//actions
-     header.clickPortfolio();
-     header.clickAbout();
-     header.clickUiUx();
-     header.clickFrontEnd();
-     header.clickBackEnd();
-     header.clickFullStack();
-     header.clickCMS();
-     header.clickSEO(); 
-     header.clickOurServices();
-     header.clickEcommerce();
-     header.clickHealthcare();
-     header.clickEducation();
-     header.clickRealEstate();
+     header.clickPortfolio()
+     header.clickAbout()
+     header.clickUiUx()
+     header.clickFrontEnd()
+     header.clickBackEnd()
+     header.clickFullStack()
+     header.clickCMS()
+     header.clickSEO() 
+     header.clickOurServices()
+     header.clickEcommerce()
+     header.clickHealthcare()
+     header.clickEducation()
+     header.clickRealEstate()
      header.clickEntertainment()
      header.clickFinance()
      header.clickHospitality()

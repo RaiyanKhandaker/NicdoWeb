@@ -44,11 +44,13 @@ class FooterFormObjects {
 
     EmailValidation(testCase){
 
-        
-
         cy.get(this.Email).eq(1).clear().type(testCase.input)
     }
 
+
+    EmailTestCase1(){
+        
+    }
 
 
     SubmitForm(){

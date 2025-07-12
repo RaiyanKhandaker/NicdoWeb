@@ -51,7 +51,7 @@ describe('Name Field Validation', () => {
 
 
 const emailTestCases = [
-  { input: 'plainaddress', expectedError: '' },
+  { input: 'plainaddress', expectedError: 'Invalid email address' },
   { input: '@missinglocal.com', expectedError: 'Invalid email address' },
   { input: 'username@.com', expectedError: 'Invalid email address' },
   { input: 'username@com', expectedError: 'Invalid email address' },

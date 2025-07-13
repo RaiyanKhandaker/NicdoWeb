@@ -3,6 +3,8 @@ import FooterFormObjects from "../objects/FooterFormObjects.cy";
 
 const footerForm = new FooterFormObjects()
 
+
+// Test cases for first name validation
 const nameTestCases = [
   { input: '123456', expectedError: 'Name can only contain letters, spaces, dots, hyphens, apostrophes (2-50 chars, no comma, no starting dot).' },
   { input: '@username', expectedError: 'Name can only contain letters, spaces, dots, hyphens, apostrophes (2-50 chars, no comma, no starting dot).' },
@@ -29,6 +31,8 @@ const nameTestCases = [
 
 
 
+
+//excecute test cases for name validation
 describe('Name Field Validation', () => {
   nameTestCases.forEach((testCase, index) => {
     it(`Test ${index + 1}: Name = "${testCase.input}"`, () => {
@@ -39,11 +43,7 @@ describe('Name Field Validation', () => {
       footerForm.ClickTellUsForm()
       footerForm.NameValidation(testCase)
       footerForm.SubmitForm()
-      
-    //   footerForm.ScrollToFooter()
-    //   footerForm.clic
-      
-      
+     
 
       if (testCase.expectedError) {
         cy.contains(testCase.expectedError).should('be.visible');
@@ -59,29 +59,17 @@ describe('Name Field Validation', () => {
 
 
 
+//Invalid email test cases part 4
 const emailTestCases = [
-  // { input: 'plainaddress', expectedError: '' }, 
-  // { input: '@missinglocal.com', expectedError: 'Invalid email address' },
-  // { input: 'username@.com', expectedError: 'Invalid email address' }, //wrong
-  { input: 'username@com', expectedError: 'Please enter a valid email address.' }, //test case
-  // { input: 'username@domain..com', expectedError: 'Email cannot contain double dots' },//wrong
-  // { input: 'username@domain,com', expectedError: 'Invalid email address' },
-  // { input: 'username@domain@another.com', expectedError: 'Invalid email address' },
-  { input: 'username@domain.c', expectedError: 'Please enter a valid email address.' }, //test case
-  { input: '.username@email.com', expectedError: 'Email cannot start with a dot.Please enter a valid email address.' },//test case
-  // { input: 'username@-domain.com', expectedError: 'Invalid email address' }, //test case
-  // { input: 'username@domain-.com', expectedError: 'Invalid email address' }, //test case
-  // { input: 'username@domain..co.uk', expectedError: 'Email cannot contain double dots' },//wrong
-  // { input: '"username"@domain.com', expectedError: 'Invalid email address' },
-  // { input: 'user@name@domain.com', expectedError: 'Invalid email address' },
-  // { input: 'username@.sub.domain.com', expectedError: 'Invalid email address' }, //wrong
-  { input: 'user..name@domain.com', expectedError: 'Email cannot contain double dots.Please enter a valid email address.' } //test case
-  // { input: 'user_name@domain..com', expectedError: 'Email cannot contain double dots' }, //wrong
-  // { input: 'user@domain#$.com', expectedError: 'Invalid email address' },
-  // { input: 'user@[192.168.1.1]', expectedError: 'Invalid email address' }
+  { input: 'username@com', expectedError: 'Please enter a valid email address.' }, 
+  { input: 'username@domain.c', expectedError: 'Please enter a valid email address.' },
+  { input: '.username@email.com', expectedError: 'Email cannot start with a dot.Please enter a valid email address.' },
+  { input: 'user..name@domain.com', expectedError: 'Email cannot contain double dots.Please enter a valid email address.' } 
 ];
 
 
+
+//excecute test cases for invalid email test cases part 4
 describe('Email Field Validation', () => {
   emailTestCases.forEach((testCase, index) => {
     it(`Email test ${index + 1}: "${testCase.input}"`, () => {
@@ -105,6 +93,7 @@ describe('Email Field Validation', () => {
 
 
 
+//Invalid email test cases part 1
 const badEmails1 = [
   'plainaddress',
   '@missinglocal.com',
@@ -117,6 +106,7 @@ const badEmails1 = [
 ];
 
 
+//Invalid email test cases part 2
 const badEmails2 = [
   'username@.com',
   'username@domain..com',
@@ -127,6 +117,7 @@ const badEmails2 = [
 ]
 
 
+//Invalid email test cases part 3
 const badEmails3 = [
   'username@-domain.com',
   'username@domain-.com'
@@ -135,7 +126,7 @@ const badEmails3 = [
 
 
 
-
+//excecute test cases for invalid email test cases part 1
 badEmails1.forEach((email) => {
   it(`Email validation "${email}"`, () => {
     // visit & open your form as usual…
@@ -165,6 +156,8 @@ badEmails1.forEach((email) => {
 
 
 
+
+//excecute test cases for invalid email test cases part 2
 badEmails2.forEach((email) => {
   it(`Email validation "${email}"`, () => {
     // visit & open your form as usual…
@@ -194,6 +187,8 @@ badEmails2.forEach((email) => {
 
 
 
+
+//excecute test cases for invalid email test cases part 3
 badEmails3.forEach((email) => {
   it(`Email validation "${email}"`, () => {
     // visit & open your form as usual…

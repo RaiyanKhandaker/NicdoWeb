@@ -1,5 +1,6 @@
 class HomeFormObjects {
 
+  //Locators of home page form
     FirstName = "input[placeholder='First name*']"
     LastName = "input[placeholder='Last name']"
     Email = "input[placeholder='Email*']"
@@ -7,6 +8,9 @@ class HomeFormObjects {
     Message = "input[placeholder='Message*']"
     Submit = "button[type='submit']"
 
+
+
+    //scroll to contact us section in Home page
     scrollContactUs(){
         
      {
@@ -18,6 +22,8 @@ class HomeFormObjects {
     }  
 
 
+
+    //name validation
     NameValidation(testCase){
         cy.get(this.FirstName).clear().type(testCase.input)
         cy.wait(500);
@@ -28,8 +34,8 @@ class HomeFormObjects {
 
     
 
+    //submit form for name validation
     ForNameValidation(){
-        // cy.get('input[name="businessName"]').clear().type(testCase.input);
       cy.get(this.Email).type('valid@example.com');
       cy.get(this.Phone).type('01234567890');
       cy.get(this.Message).type('sdfghjkjhgfdsfghhgfdfghkjhghjk');
@@ -40,6 +46,7 @@ class HomeFormObjects {
     }
 
 
+    //email validation
     EmailValidation(testCase){
       cy.wait(500);
       cy.get(this.FirstName).type('Valid Company');

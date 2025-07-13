@@ -1,4 +1,5 @@
 class FooterFormObjects {
+    //footer locators
     TellUsForm = "//button[normalize-space()='Tell Us About Your Project']"
     FirstName = "input[placeholder='First Name*']"
     Lastname = "input[placeholder='Last Name']"
@@ -8,11 +9,16 @@ class FooterFormObjects {
 
 
 
+
+    //scroll to footer
     ScrollToFooter(){
         cy.scrollTo('bottom')
         cy.wait(1000)
     }
 
+
+
+    //click footer form
     ClickTellUsForm(){
         cy.xpath(this.TellUsForm).click({multiple: true})
        
@@ -25,6 +31,8 @@ class FooterFormObjects {
     }
 
 
+
+    //name validation test cases
     NameValidation(testCase){
         cy.get(this.FirstName).clear().type(testCase.input)
         cy.wait(1000);
@@ -34,25 +42,27 @@ class FooterFormObjects {
     }
 
 
-    TypeName(){
 
+    //type name for email validation
+    TypeName(){
        cy.get(this.FirstName).type("Valid Company")
-      
        cy.get(this.Lastname).type("Valid Company")
     }
 
 
+
+
+    //email validation test cases
     EmailValidation(testCase){
-
         cy.get(this.Email).eq(1).clear().type(testCase.input)
+        cy.wait(1000)
     }
 
 
-    EmailTestCase1(){
-        
-    }
+    
 
 
+    //submit form
     SubmitForm(){
         // First, get the iframe
        cy.get('iframe').then(($iframe) => {
@@ -66,6 +76,7 @@ class FooterFormObjects {
        }
      });
         cy.get(this.Send).click()
+        cy.wait(1000)
     }
 }
 

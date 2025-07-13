@@ -1,19 +1,23 @@
 class allOtherPageObjects{
 
+    //locators for all other page objects
     Technologies = "//div[contains(text(),'Technologies')]"
     Portfolio= "//a[contains(text(),'Portfolio')]";
     About = "//a[contains(text(),'About Us')]";
     GetStartedButton = "//button[normalize-space()='Get Started']"
     Submit = "//button[@type='submit']"
 
-    //The success stories we built
 
+
+    //click Technologies
     clickTechnologies(){
         cy.xpath(this.Technologies).click({force:true})
         cy.wait(1000)
     }
 
 
+
+    //click Oracle
     clickOracle(){
      cy.contains("Oracle").click({ force: true })
      cy.wait(1000)
@@ -21,7 +25,10 @@ class allOtherPageObjects{
      cy.wait(1000)
     }
 
-    clickPortfolio(){//click portfolio
+
+
+    //click portfolio
+    clickPortfolio(){
      cy.xpath(this.Portfolio).click()
      cy.wait(1000)
      cy.url({ decode: true }).should('contain', 'portfolio')
@@ -31,8 +38,9 @@ class allOtherPageObjects{
 
 
 
+
+    //Scroll to portfolio
     scrollPortfolio(){
-        
      {
       cy.contains("The success stories we built")
         .scrollIntoView({ block: 'center' })
@@ -44,7 +52,9 @@ class allOtherPageObjects{
     }
 
 
-    clickAbout(){ //click About us
+
+    //click About us
+    clickAbout(){ 
      cy.xpath(this.About).click()
      cy.wait(1000)
      cy.url({ decode: true }).should('contain', 'about')
@@ -52,7 +62,7 @@ class allOtherPageObjects{
     }
 
 
-    
+    //Scroll to About us
     scrollAboutUs(){
     {
      cy.contains("Who We Are?")
@@ -65,6 +75,8 @@ class allOtherPageObjects{
     }
 
 
+
+    //click Get Started
     clickGetStartedButton(){
      cy.xpath(this.GetStartedButton).click({ force: true })
      cy.wait(1000)
@@ -74,6 +86,7 @@ class allOtherPageObjects{
 
     
 
+    //scroll to contact us
     scrollContact(){
     {
      cy.contains("Get in Touch with NicdoWeb")
@@ -86,6 +99,8 @@ class allOtherPageObjects{
     }
 
 
+
+    //click Submit
     clickSubmit(){
         cy.xpath(this.Submit).click({ force: true })
         cy.wait(1000)

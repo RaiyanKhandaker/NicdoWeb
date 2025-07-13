@@ -59,6 +59,7 @@ class FooterObjects{
     }
 
 
+    //click Ui/Ux
     clickUiUx(){
         cy.xpath(this.UiUx).click()
         cy.wait(1000)
@@ -67,6 +68,7 @@ class FooterObjects{
     }
 
 
+    //click Frontend
     clickFrontEnd(){
         cy.xpath(this.FrontEnd).click({multiple: true})
         cy.wait(1000)
@@ -75,6 +77,8 @@ class FooterObjects{
         
     }
 
+
+    //click backend
     clickBackEnd(){
         cy.xpath(this.BackEnd).click({multiple: true})
         cy.wait(1000)
@@ -84,6 +88,7 @@ class FooterObjects{
     }
 
 
+    //click Full Stack
     clickFullstack(){
         cy.xpath(this.FullStack).click({multiple: true})
         cy.wait(1000)
@@ -92,6 +97,8 @@ class FooterObjects{
     }
 
 
+
+    //click CMS
     clickCMS(){
         cy.xpath(this.CMS).click({multiple: true})
         cy.wait(1000)
@@ -100,6 +107,7 @@ class FooterObjects{
     }
 
 
+    //click SEO
     clickSEO(){
         cy.xpath(this.SEO).click({multiple: true})
         cy.wait(1000)
@@ -108,6 +116,7 @@ class FooterObjects{
     }
 
 
+    //click Privacy policy
     clickPrivacy(){
         cy.xpath(this.Privacy).click({multiple: true})
         cy.wait(1000)
@@ -115,6 +124,8 @@ class FooterObjects{
         cy.wait(1000)
     }
 
+
+    //click Terms and conditions
     clickTerms(){
         cy.xpath(this.Terms).click({multiple: true})
         cy.wait(1000)
@@ -123,6 +134,8 @@ class FooterObjects{
     }
 
 
+
+    //click Cookies policy
     clickCookie(){
         cy.xpath(this.Cookie).click({multiple: true})
         cy.wait(1000)
@@ -131,6 +144,8 @@ class FooterObjects{
     }
 
 
+
+    //click Tell Us Form
     clickTellUsForm(){
         cy.xpath(this.TellUsForm).click({multiple: true})
        

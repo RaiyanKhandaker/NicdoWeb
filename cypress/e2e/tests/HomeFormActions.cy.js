@@ -3,6 +3,9 @@ import HomeFormObjects from "../objects/HomeFormObjects.cy";
 const form=new HomeFormObjects();
 
 
+
+
+// Test cases for name validation
 const nameTestCases = [
   { input: '123456', expectedError: 'Only letters, spaces, dots, hyphens, apostrophes (2-50 chars, no comma, no starting dot, no ending hyphen)' },
   { input: '@username', expectedError: 'Only letters, spaces, dots, hyphens, apostrophes (2-50 chars, no comma, no starting dot, no ending hyphen)' },
@@ -29,6 +32,7 @@ const nameTestCases = [
 
 
 
+//excecute test cases for first name validation
 describe('Name Field Validation', () => {
   nameTestCases.forEach((testCase, index) => {
     it(`Test ${index + 1}: Name = "${testCase.input}"`, () => {
@@ -50,6 +54,8 @@ describe('Name Field Validation', () => {
 });
 
 
+
+//excecute test cases for invalid email test cases
 const emailTestCases = [
   { input: 'plainaddress', expectedError: 'Invalid email address' },
   { input: '@missinglocal.com', expectedError: 'Invalid email address' },
@@ -73,6 +79,8 @@ const emailTestCases = [
 ];
 
 
+
+//excecute test cases for invalid email test cases 
 describe('Email Field Validation', () => {
   emailTestCases.forEach((testCase, index) => {
     it(`Email test ${index + 1}: "${testCase.input}"`, () => {

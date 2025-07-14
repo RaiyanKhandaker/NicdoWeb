@@ -14,9 +14,9 @@ class ContactUsPageObject{
     //click Contact us from Header
     clickContact(){//click Contact us
      cy.xpath(this.Contact).click({multiple: true}, {force: true})
-     cy.wait(1000)
+     cy.wait(2000)
      cy.url({ decode: true }).should('contain', 'contact')
-     cy.wait(1000)
+     cy.wait(2000)
     }
 
 

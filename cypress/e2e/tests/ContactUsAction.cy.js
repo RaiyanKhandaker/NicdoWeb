@@ -5,7 +5,7 @@ const form=new ContactUsPageObject()
 it('Test First name Empty validation', () => {
 
       cy.visit('https://nicdoweb.com/')
-      cy.wait(1000)
+      cy.wait(2000)
 
       form.clickContact()
       form.scrollContact()
@@ -48,7 +48,8 @@ describe('Name Field Validation', () => {
   firstNameTestCases.forEach((testCase, index) => {
     it(`Test ${index + 1}: Name = "${testCase.input}"`, () => {
       cy.visit('https://nicdoweb.com/')
-       cy.wait(1000)
+      cy.wait(2000)
+      
 
       form.clickContact()
       form.scrollContact()
@@ -167,6 +168,7 @@ const badEmails3 = [
 badEmails1.forEach((email) => { 
   it(`Email validation "${email}"`, () => {
     cy.visit('https://nicdoweb.com/')
+    cy.wait(2000)
 
     form.clickContact()
     form.scrollContact()
@@ -198,6 +200,7 @@ badEmails1.forEach((email) => {
 badEmails2.forEach((email) => {
   it(`Email validation "${email}"`, () => {
     cy.visit('https://nicdoweb.com/')
+    cy.wait(1000)
 
     form.clickContact()
     form.scrollContact()
@@ -228,6 +231,7 @@ badEmails2.forEach((email) => {
 badEmails3.forEach((email) => {
   it(`Email validation "${email}"`, () => {
     cy.visit('https://nicdoweb.com/')
+    cy.wait(1000)
 
     form.clickContact()
     form.scrollContact()
@@ -269,6 +273,7 @@ describe('Email Field Validation', () => {
   emailTestCases.forEach((testCase, index) => {
     it(`Email test ${index + 1}: "${testCase.input}"`, () => {
       cy.visit('https://nicdoweb.com/')
+      cy.wait(1000)
 
       form.clickContact()
       form.scrollContact()

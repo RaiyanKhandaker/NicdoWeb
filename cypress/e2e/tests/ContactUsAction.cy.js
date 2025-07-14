@@ -273,7 +273,7 @@ describe('Email Field Validation', () => {
   emailTestCases.forEach((testCase, index) => {
     it(`Email test ${index + 1}: "${testCase.input}"`, () => {
       cy.visit('https://nicdoweb.com/')
-      cy.wait(1000)
+      cy.wait(2000)
 
       form.clickContact()
       form.scrollContact()

@@ -1,0 +1,20 @@
+### Dockerfile for NicdoWeb Cypress E2E Test Suite
+# This Dockerfile uses the official Cypress included image
+
+FROM cypress/included:12.16.0
+
+# Set working directory
+WORKDIR /app
+
+# Copy package manifests and install dependencies
+COPY package.json package-lock.json ./
+RUN npm ci
+
+# Copy the rest of the repository
+COPY . ./
+
+# Expose any ports if needed (e.g., for Dashboard service, not required for pure tests)
+# EXPOSE 8080
+
+# Default command: run all Cypress tests in headless mode
+CMD ["npx", "cypress", "run"]

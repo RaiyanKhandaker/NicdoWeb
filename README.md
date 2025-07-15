@@ -99,23 +99,32 @@ NicdoWeb/
 All page-specific selectors and actions are encapsulated in the `cypress/e2e/objects` directory. Example:
 
 ```js
-// cypress/e2e/objects/ContactUsPageObject.cy.js
-export default class ContactUsPageObject {
-  constructor() {
-    this.contactBtn = 'a[href*="contact"]';
-    this.firstNameInput = 'input[name="firstName"]';
-    // ...other selectors
-  }
+// cypress/e2e/objects/allOtherPageObjects.cy.js
+export default class allOtherPageObjects{
 
-  clickContact() {
-    cy.get(this.contactBtn).click();
-  }
+    //locators for all other page objects
+    Technologies = "//div[contains(text(),'Technologies')]"
+    Portfolio= "//a[contains(text(),'Portfolio')]";
+    About = "//a[contains(text(),'About Us')]";
+    GetStartedButton = "//button[normalize-space()='Get Started']"
+    Submit = "//button[@type='submit']"
 
-  submitEmpty() {
-    cy.get(this.submitBtn).click();
-  }
-  // ...other methods
+    //click Technologies
+    clickTechnologies(){
+        cy.xpath(this.Technologies).click({force:true})
+        cy.wait(1000)
+    }
+
+    //click Oracle
+    clickOracle(){
+     cy.contains("Oracle").click({ force: true })
+     cy.wait(1000)
+     cy.url({ decode: true }).should('contain', 'oracle')
+     cy.wait(1000)
+    }
 }
+
+// export default allOtherPageObjects
 ```
 
 ## Writing New Tests

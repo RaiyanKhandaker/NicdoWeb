@@ -1,7 +1,8 @@
 ### Dockerfile for NicdoWeb Cypress E2E Test Suite
 # This Dockerfile uses the official Cypress included image
 
-FROM cypress/included:12.16.0
+FROM cypress/included:latest
+
 
 # Set working directory
 WORKDIR /app

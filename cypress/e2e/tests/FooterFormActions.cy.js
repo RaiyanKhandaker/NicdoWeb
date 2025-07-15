@@ -129,7 +129,6 @@ const badEmails3 = [
 //excecute test cases for invalid email test cases part 1
 badEmails1.forEach((email) => {
   it(`Email validation "${email}"`, () => {
-    // visit & open your form as usual…
     cy.visit('https://nicdoweb.com/')
     // footerForm.ScrollToFooter()
     footerForm.ClickTellUsForm()

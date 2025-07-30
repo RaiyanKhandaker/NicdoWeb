@@ -59,159 +59,94 @@ describe('Name Field Validation', () => {
 
 
 
-//Invalid email test cases part 4
-const emailTestCases = [
-  { input: 'username@com', expectedError: 'Please enter a valid email address.' }, 
-  { input: 'username@domain.c', expectedError: 'Please enter a valid email address.' },
-  { input: '.username@email.com', expectedError: 'Email cannot start with a dot.Please enter a valid email address.' },
-  { input: 'user..name@domain.com', expectedError: 'Email cannot contain double dots.Please enter a valid email address.' } 
-];
-
-
-
-//excecute test cases for invalid email test cases part 4
 describe('Email Field Validation', () => {
-  emailTestCases.forEach((testCase, index) => {
-    it(`Email test ${index + 1}: "${testCase.input}"`, () => {
-      cy.visit('https://nicdoweb.com/')
+  // Shared setup for every test
+  beforeEach(() => {
+    cy.visit('https://nicdoweb.com/');
+    footerForm.ScrollToFooter();
+    footerForm.ClickTellUsForm();
+    footerForm.TypeName('Test User');
+  });
 
-      footerForm.ScrollToFooter()
-      footerForm.ClickTellUsForm()
-      footerForm.TypeName()
-      footerForm.EmailValidation(testCase)
-      footerForm.SubmitForm()
+  //
+  // PARTS 1–3: Browser-native <input>.validationMessage tests
+  //
+  const browserValidationGroups = [
+    {
+      name: 'Part 1 – must include "@"',
+      emails: [
+        'plainaddress',
+        '@missinglocal.com',
+        'username@domain@another.com',
+        'user@domain#$.com',
+        'user@name@domain.com',
+        '"username"@domain.com',
+        'username@domain,com',
+        'user@[192.168.1.1]'
+      ],
+      assertMsg: (msg) => expect(msg).to.include('@')
+    },
+    {
+      name: 'Part 2 – must include "wrong"',
+      emails: [
+        'username@.com',
+        'username@domain..com',
+        'username@domain..co.uk',
+        'username@.sub.domain.com',
+        'user_name@domain..com'
+      ],
+      assertMsg: (msg) => expect(msg).to.include('wrong')
+    },
+    {
+      name: 'Part 3 – must include full “Please enter an email address.”',
+      emails: [
+        'username@-domain.com',
+        'username@domain-.com'
+      ],
+      assertMsg: (msg) => expect(msg).to.include('Please enter an email address.')
+    }
+  ];
 
-      if (testCase.expectedError) {
-            cy.contains(testCase.expectedError).should('be.visible');
-        } else {
-            cy.contains('Failed to submit your quote request. Please try again.').should('be.visible'); 
-        }
+  browserValidationGroups.forEach(({ name, emails, assertMsg }) => {
+    describe(name, () => {
+      emails.forEach(email => {
+        it(`"${email}" → browser validation`, () => {
+          cy.get("form.space-y-5.text-accent input[placeholder='Email*']")
+            .clear()
+            .type(email)
+            .blur()
+            .then($input => {
+              const msg = $input[0].validationMessage;
+              assertMsg(msg);
+            });
+        });
+      });
+    });
+  });
 
+  //
+  // PART 4: Custom UI error messages under the form
+  //
+  const uiErrorTests = [
+    { input: 'username@com', expectedError: 'Please enter a valid email address.' },
+    { input: 'username@domain.c', expectedError: 'Please enter a valid email address.' },
+    { input: '.username@email.com', expectedError: 'Email cannot start with a dot.Please enter a valid email address.' },
+    { input: 'user..name@domain.com', expectedError: 'Email cannot contain double dots.Please enter a valid email address.' }
+  ];
+
+  describe('Part 4 – UI error messages', () => {
+    uiErrorTests.forEach(({ input, expectedError }, idx) => {
+      it(`Case ${idx + 1}: "${input}" shows "${expectedError}"`, () => {
+        cy.get("form.space-y-5.text-accent input[placeholder='Email*']")
+          .clear()
+          .type(input);
+
+        footerForm.SubmitForm();
+
+        cy.contains(expectedError).should('be.visible');
+      });
     });
   });
 });
 
-
-
-//Invalid email test cases part 1
-const badEmails1 = [
-  'plainaddress',
-  '@missinglocal.com',
-  'username@domain@another.com',
-  'user@domain#$.com',
-  'user@name@domain.com',
-  '"username"@domain.com',
-  'username@domain,com',
-  'user@[192.168.1.1]'
-];
-
-
-//Invalid email test cases part 2
-const badEmails2 = [
-  'username@.com',
-  'username@domain..com',
-  'username@domain..co.uk',
-  'username@.sub.domain.com',
-  'user_name@domain..com'
-
-]
-
-
-//Invalid email test cases part 3
-const badEmails3 = [
-  'username@-domain.com',
-  'username@domain-.com'
-]
-
-
-
-
-//excecute test cases for invalid email test cases part 1
-badEmails1.forEach((email) => {
-  it(`Email validation "${email}"`, () => {
-    cy.visit('https://nicdoweb.com/')
-    // footerForm.ScrollToFooter()
-    footerForm.ClickTellUsForm()
-    footerForm.TypeName()
-
-    // Loop through the bad emails
-    cy.get("form[class='space-y-5 text-accent'] input[placeholder='Email*']")
-      .clear()
-      .type(email)
-      .blur()                            
-      .then($input => {
-        const msg = $input[0].validationMessage
-        if (email === '') {
-          expect(msg).to.eq('Please fill out this field.')
-        } else {
-          expect(msg).to.include('@')
-        }
-      })
-
-
-      footerForm.SubmitForm()
-  })
-})
-
-
-
-
-//excecute test cases for invalid email test cases part 2
-badEmails2.forEach((email) => {
-  it(`Email validation "${email}"`, () => {
-    // visit & open your form as usual…
-    cy.visit('https://nicdoweb.com/')
-    // footerForm.ScrollToFooter()
-    footerForm.ClickTellUsForm()
-    footerForm.TypeName()
-
-    // Loop through the bad emails
-    cy.get("form[class='space-y-5 text-accent'] input[placeholder='Email*']")
-      .clear()
-      .type(email)
-      .blur()                            
-      .then($input => {
-        const msg = $input[0].validationMessage
-        if (email === '') {
-          expect(msg).to.eq('Please fill out this field.')
-        } else {
-          expect(msg).to.include('wrong')
-        }
-      })
-
-
-      footerForm.SubmitForm()
-  })
-})
-
-
-
-
-//excecute test cases for invalid email test cases part 3
-badEmails3.forEach((email) => {
-  it(`Email validation "${email}"`, () => {
-    // visit & open your form as usual…
-    cy.visit('https://nicdoweb.com/')
-    // footerForm.ScrollToFooter()
-    footerForm.ClickTellUsForm()
-    footerForm.TypeName()
-
-    // Loop through the bad emails
-    cy.get("form[class='space-y-5 text-accent'] input[placeholder='Email*']")
-      .clear()
-      .type(email)
-      .blur()                            
-      .then($input => {
-        const msg = $input[0].validationMessage
-        if (email === '') {
-          expect(msg).to.eq('Please fill out this field.')
-        } else {
-          expect(msg).to.include('Please enter an email address.')
-        }
-      })
-
-
-      footerForm.SubmitForm()
-  })
-})
 

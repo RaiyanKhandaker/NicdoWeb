@@ -1,55 +1,46 @@
 import HomeObejcts from "../objects/HomeObjects.cy";
 
+const home = new HomeObejcts()
 
 describe('Checking functionality of Header button of Nicdo Web', () => {
+
+
   it('should check all header button functionality correctly', () => {
-     const home=new HomeObejcts()
+  
+  const url  = 'https://nicdoweb.com/';
 
-    {//visit website
-     cy.visit('https://nicdoweb.com/')
-     cy.wait(2000)
-    }
+  cy.visit(url);
+  cy.wait(2000);
 
-    home.scrollWebDevelopmentServices()
-    home.clickUiUx()
-    home.clickFrontend()
-    home.clickBackend()
-    home.clickFullstack()
-    home.clickCMS()
-    home.clickSEO()
-    home.clickUiUx()
-    home.clickReadMore()
-    home.clickHome()
-    home.scrollWebDevelopmentServices()
-    home.clickFrontend()
-    home.clickReadMore()
-    home.clickHome()
-    home.scrollWebDevelopmentServices()
-    home.clickBackend()
-    home.clickReadMore()
-    home.clickHome()
-    home.scrollWebDevelopmentServices()
-    home.clickFullstack()
-    home.clickReadMore()
-    home.clickHome()
-    home.scrollWebDevelopmentServices()
-    home.clickCMS()
-    home.clickReadMore()
-    home.clickHome()
-    home.scrollWebDevelopmentServices()
-    home.clickSEO()
-    home.clickReadMore()
-    home.clickHome()
-    home.scrollWebDevelopmentServices()
-    home.scrollPackages()
-    // home.clickBasic()
-    // home.scrollPackages()
-    // home.clickStandard()
-    // home.scrollPackages()
-    // home.clickPremium()
-    // home.scrollPackages()
-    home.clickHome()
-    home.scrollContactUs()
-    home.clickContactUs()
-  })
+
+  const services = ['UiUx', 'Frontend', 'Backend', 'Fullstack', 'CMS', 'SEO'];
+
+  // Quick pass–through: just click each tab once
+  services.forEach(tab => {
+    home.scrollWebDevelopmentServices();
+    home[`click${tab}`]();
+  });
+
+  // “Read More” pass: scroll → click tab → click Read More → back home
+  services.forEach(tab => {
+    home.scrollWebDevelopmentServices();
+    home[`click${tab}`]();
+    home.clickReadMore();
+    home.clickHome();
+  });
+
+  // // 5) Uncomment to test Packages section
+  // home.scrollWebDevelopmentServices();
+  // home.scrollPackages();
+  // ['Basic', 'Standard', 'Premium'].forEach(plan => {
+  //   home[`click${plan}`]();
+  //   home.scrollPackages();
+  // });
+  // home.clickHome();
+
+
+  home.scrollContactUs();
+  home.clickContactUs();
+});
+
 })

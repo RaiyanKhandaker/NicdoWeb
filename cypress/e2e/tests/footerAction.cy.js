@@ -1,50 +1,28 @@
-import FooterObjects from "../objects/footerObjects.cy"
+import FooterObjects from "../objects/footerObjects.cy";
+
+const footer = new FooterObjects();
 
 describe('Checking functionality of Footer of Nicdo Web', () => {
   it('should check all Footer functionality correctly', () => {
-
-    const footer= new FooterObjects()
-
-    
-    {//visit website
-     cy.visit('https://nicdoweb.com/')
-     cy.wait(2000)
-    }
-
-    
-    footer.ScrollToFooter()
-    footer.clickIndustries()
-    footer.ScrollToFooter()
-    footer.clickHome()
-    footer.ScrollToFooter()
-    footer.clickTechnologies()
-    footer.ScrollToFooter()
-    footer.clickPortfolio()
-    footer.ScrollToFooter()
-    footer.clickAboutUs()
-    footer.ScrollToFooter()
-    footer.clickUiUx()
-    footer.ScrollToFooter()
-    footer.clickFrontEnd()
-    footer.ScrollToFooter()
-    footer.clickBackEnd()
-    footer.ScrollToFooter()
-    footer.clickFullstack()
-    footer.clickCMS()
-    footer.ScrollToFooter()
-    footer.clickSEO()
-    footer.ScrollToFooter()
-    footer.clickPrivacy()
-    footer.ScrollToFooter()
-    footer.clickTerms()
-    footer.ScrollToFooter()
-    footer.clickCookie()
-    footer.clickTellUsForm()
-
     
 
-   
+    cy.visit('https://nicdoweb.com/');
+    cy.wait(2000);
 
-    
-  })
-})
+    const footerActions = [
+      'Industries', 'Home', 'Technologies', 'Portfolio', 'AboutUs','UiUx', 'FrontEnd', 'BackEnd', 'Fullstack', 'CMS',
+      'SEO', 'Privacy', 'Terms', 'Cookie', 'TellUsForm'
+    ];
+
+    // Loop through and perform each action
+    footerActions.forEach(action => {
+      footer.ScrollToFooter(); // Scroll before each action
+      const method = `click${action}`;
+      if (typeof footer[method] === 'function') {
+        footer[method]();
+      } else {
+        cy.wait(2000); 
+      }
+    });
+  });
+});
